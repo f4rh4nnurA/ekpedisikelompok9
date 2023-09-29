@@ -8,8 +8,8 @@ public class biayaekspedisi {
     Scanner input = new Scanner(System.in);
     
     //input data
-    float brtBarang, jrkPengiriman, ttlHarga, hargaPerKilogram=0, hrgJarak=0;
-    String jnsBarang, jnsPengiriman, estimasi="hari";
+    float brtBarang, jrkPengiriman, ttlHarga, hargaPerKilogram=0, hrgJarak=0, hrgAsuransi=0, hrgPackingKayu=0;
+    String jnsBarang, jnsPengiriman, asuransi, pckgKayu="error", estimasi="hari";
 
     System.out.println("-------------------------------------- INPUT HARGA ------------------------------------------------");
 
@@ -22,6 +22,11 @@ public class biayaekspedisi {
     jnsPengiriman=input.nextLine();
     System.out.print("Masukkan jarak pengiriman\t\t\t: ");
     jrkPengiriman=input.nextFloat();
+    System.out.print("Asuransi(Iya/Tidak)\t\t\t\t: ");
+    input.nextLine();
+    asuransi=input.nextLine();
+    System.out.print("Packing kayu(Iya/Tidak)\t\t\t\t: ");
+    pckgKayu=input.nextLine();
 
     
     //menentukan harga
@@ -84,15 +89,29 @@ public class biayaekspedisi {
         hrgJarak=35000.0F;
     }
 
-    //menentukan total harga
-        ttlHarga=brtBarang*hargaPerKilogram+hrgJarak;
-
     //menampilkan estimasi waktu
     if (jnsPengiriman.equals("Reguler")) {
         estimasi="7-10 Hari";
     } if (jnsPengiriman.equals("Express")) {
         estimasi="3-5 Hari";
     }
+
+    //menentukan asuransi
+    if (asuransi.equals("Iya")) {
+        hrgAsuransi=10000.0F;
+    } else if (asuransi.equals("Tidak")) {
+        hrgAsuransi=0.0F;
+    }
+
+    //menentukan harga packing kayu
+    if (pckgKayu.equals("Iya")) {
+        hrgPackingKayu=25000.0F;
+    } else if (pckgKayu.equals("Tidak")) {
+        hrgPackingKayu=0.0F;
+    }
+
+    //menentukan total harga
+        ttlHarga=brtBarang*hargaPerKilogram+hrgJarak+hrgAsuransi+hrgPackingKayu;
 
     // output hasil
     System.out.println("\nHarga pengiriman\t\t\t\t: Rp " + ttlHarga);
