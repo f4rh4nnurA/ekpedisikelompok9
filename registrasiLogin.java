@@ -28,16 +28,21 @@ public class registrasiLogin {
 
             
         }
-            //login
+            //Menu login pertama
+        
         System.out.println("\n\t\tLogin\n\t\t");
         System.out.println("Pilihan akun login");
         System.out.println("1. admin");
         System.out.println("2. user");
         System.out.print("\nPilih akun login dengan angka (1-2) : ");
         String pilihan = scan.next();
-        
+
+        //jika pilih akun user "1"
+        if (pilihan.equals("1") ) {
+
+         }   
         //jika pilih akun user "2"
-        if (pilihan.equals("2") ) {
+        else if (pilihan.equals("2") ) {
         while (attempts < maxattempts) {
             System.out.print("\n\t\tLogin User\t\t");
             System.out.print("\nEmail\t\t: ");
@@ -56,8 +61,14 @@ public class registrasiLogin {
         }
     }
 }
-    }
+    } 
+        else {
+            System.out.print("\n\tpilihan yang anda input tidak ada");
+            
+    } 
         
-} 
+}
+
+break; 
 }
 }
