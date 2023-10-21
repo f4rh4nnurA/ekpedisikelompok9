@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class registrasiLogin {
     public static void main (String[] args){
         try(Scanner scan = new Scanner (System.in)) {
-            String email = " ", password1 = " ", password2 = " ";
+            String email = " ", password1 = " ", password2 = " ", passwordAdmin = "12345",username = "admin";
             boolean valid = false;
             int attempts = 0, maxattempts = 3;
             
@@ -29,7 +29,6 @@ public class registrasiLogin {
             
         }
             //Menu login pertama
-        valid = false;
         while (!valid){
         System.out.println("\n\n\t\tLogin\n\t\t");
         System.out.println("Pilihan akun login");
@@ -40,7 +39,25 @@ public class registrasiLogin {
 
         //jika pilih akun user "1"
         if (pilihan.equals("1") ) {
-            
+        while (attempts < maxAttempts) {
+            System.out.print("Username: ");
+            String enteredUsername = input.nextLine();
+            System.out.print("Password: ");
+            String enteredPassword = input.nextLine();
+
+            if(enteredUsername(username) && enteredPassword.equals(passwordAdmin)) {
+                System.out.println("Login berhasil!");
+                break;
+            } else {
+                System.out.println("Login gagal. Coba lagi.");
+                attempts++;
+            }
+        }
+
+        if (attempts == maxAttempts) {
+            System.out.println("Batas percobaan tercapai. Akun anda terblokir harap hubungi Admin.");
+            return;
+        }
          }   
         //jika pilih akun user "2"
         else if (pilihan.equals("2") ) {
