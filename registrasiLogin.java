@@ -11,7 +11,7 @@ public class registrasiLogin {
             
             // Registrasi
         while (!valid) { 
-            System.out.println("\t\tRegistrasi\t\t");
+            System.out.println("\n\t\tRegistrasi\t\t");
             System.out.print("email\t\t:");
             email = scan.next();
             System.out.print("\npassword1\t\t:");
@@ -29,8 +29,9 @@ public class registrasiLogin {
             
         }
             //Menu login pertama
-        
-        System.out.println("\n\t\tLogin\n\t\t");
+        valid = false;
+        while (!valid){
+        System.out.println("\n\n\t\tLogin\n\t\t");
         System.out.println("Pilihan akun login");
         System.out.println("1. admin");
         System.out.println("2. user");
@@ -39,7 +40,7 @@ public class registrasiLogin {
 
         //jika pilih akun user "1"
         if (pilihan.equals("1") ) {
-
+            
          }   
         //jika pilih akun user "2"
         else if (pilihan.equals("2") ) {
@@ -61,11 +62,14 @@ public class registrasiLogin {
         }
     }
 }
+    break;
     } 
         else {
             System.out.print("\n\tpilihan yang anda input tidak ada");
+            valid = false;
             
     } 
+}
         
 } 
 }
