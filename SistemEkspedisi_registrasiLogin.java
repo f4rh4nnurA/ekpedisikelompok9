@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class SistemEkspedisi_registrasiLogin {
     public static void main (String[] args){
-        try(Scanner scan = new Scanner (System.in)) {
+        try(Scanner input = new Scanner (System.in)) {
             String email = " ", password1 = " ", password2 = " ", passwordAdmin = "12345",username = "admin";
             boolean valid = false;
             int attempts = 0, maxAttempts = 3;
@@ -16,11 +16,11 @@ public class SistemEkspedisi_registrasiLogin {
         while (!valid) { 
             System.out.println("\n\t\tRegistrasi\t\t");
             System.out.print("email\t\t:");
-            email = scan.next();
+            email = input.next();
             System.out.print("\npassword1\t\t:");
-            password1 = scan.next();
+            password1 = input.next();
             System.out.print("\nPassword2\t\t:");
-            password2 = scan.next();
+            password2 = input.next();
             if(password1.equals(password2)){
                 System.out.println("\nRegistrasi anda berhasil, silakan login");
                 valid = true;
@@ -38,15 +38,15 @@ public class SistemEkspedisi_registrasiLogin {
         System.out.println("1. admin");
         System.out.println("2. user");
         System.out.print("\nPilih akun login dengan angka (1-2) : ");
-        String pilihan = scan.next();
+        String pilihan = input.next();
 
         //jika pilih akun user "1"
         if (pilihan.equals("1") ) {
         while (attempts < maxAttempts) {
             System.out.print("\nUsername\t\t: ");
-            String enteredUsername = scan.nextLine();
+            String enteredUsername = input.nextLine();
             System.out.print("\nPassword\t\t: ");
-            String enteredPassword = scan.nextLine();
+            String enteredPassword = input.nextLine();
 
             if(enteredUsername.equals(username) && enteredPassword.equals(passwordAdmin)) {
                 System.out.println("Login berhasil!");
@@ -68,9 +68,9 @@ public class SistemEkspedisi_registrasiLogin {
             System.out.print("\n\t\tLogin User\t\t");
             System.out.print("\nEmail\t\t: ");
             String emaillogin = "";
-            emaillogin = scan.next();
+            emaillogin = input.next();
             System.out.print("\nPassword\t\t: ");
-            password1 = scan.next();
+            password1 = input.next();
             if(password1.equals(password2) && emaillogin.equals(email)){
                 System.out.println("Anda berhasil login");
                 break;
