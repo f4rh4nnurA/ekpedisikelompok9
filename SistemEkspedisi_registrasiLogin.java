@@ -1,3 +1,6 @@
+
+//Fitur Registrasi dan Login
+
 //Fitur Registrasi dan Login
 
 import java.util.Scanner;
@@ -5,7 +8,7 @@ import java.util.Scanner;
 public class SistemEkspedisi_registrasiLogin {
     public static void main (String[] args){
         try(Scanner scan = new Scanner (System.in)) {
-            String email = " ", password1 = " ", password2 = " ", passwordAdmin = "12345", username = "email";
+            String email = " ", password1 = " ", password2 = " ", passwordAdmin = "12345",username = "admin";
             boolean valid = false;
             int attempts = 0, maxAttempts = 3;
             
@@ -19,17 +22,16 @@ public class SistemEkspedisi_registrasiLogin {
             System.out.print("\nPassword2\t\t:");
             password2 = scan.next();
             if(password1.equals(password2)){
-                System.out.println("\n\t\tRegistrasi anda berhasil, silakan login");
+                System.out.println("\nRegistrasi anda berhasil, silakan login");
                 valid = true;
             }else{
-                System.out.println("\n\t\tPassword anda tidak sama, silakan coba lagi");
+                System.out.println("\nPassword anda tidak sama, silakan coba lagi");
             }
 
 
             
         }
             //Menu login pertama
-        valid = false;
         while (!valid){
         System.out.println("\n\n\t\tLogin\n\t\t");
         System.out.println("Pilihan akun login");
@@ -40,25 +42,25 @@ public class SistemEkspedisi_registrasiLogin {
 
         //jika pilih akun user "1"
         if (pilihan.equals("1") ) {
-            while (attempts < maxAttempts) {
-                System.out.print("\n\t\tUsername: ");
-                String enteredUsername = scan.nextLine();
-                System.out.print("\n\t\tPassword: ");
-                String enteredPassword = scan.nextLine();
-    
-                if(enteredUsername.equals(username) && enteredPassword.equals(passwordAdmin)) {
-                    System.out.println("Login berhasil!");
-                    break;
-                } else {
-                    System.out.println("Login gagal. Coba lagi.");
-                    attempts++;
-                }
+        while (attempts < maxAttempts) {
+            System.out.print("\n\t\tUsername: ");
+            String enteredUsername = scan.nextLine();
+            System.out.print("\n\t\tPassword: ");
+            String enteredPassword = scan.nextLine();
+
+            if(enteredUsername.equals(username) && enteredPassword.equals(passwordAdmin)) {
+                System.out.println("Login berhasil!");
+                break;
+            } else {
+                System.out.println("Login gagal. Coba lagi.");
+                attempts++;
             }
-    
-            if (attempts == maxAttempts) {
-                System.out.println("Batas percobaan tercapai. Akun anda terblokir harap hubungi Admin.");
-                return;
-            }
+        }
+
+        if (attempts == maxAttempts) {
+            System.out.println("Batas percobaan tercapai. Akun anda terblokir harap hubungi Admin.");
+            return;
+        }
          }   
         //jika pilih akun user "2"
         else if (pilihan.equals("2") ) {
@@ -92,3 +94,4 @@ public class SistemEkspedisi_registrasiLogin {
 } 
 }
 }
+
