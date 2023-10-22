@@ -28,10 +28,10 @@ public class SistemEkspedisi_registrasiLogin {
                 System.out.println("\nPassword anda tidak sama, silakan coba lagi");
             }
 
-
             
         }
             //Menu login pertama
+        valid = false;
         while (!valid){
         System.out.println("\n\n\t\tLogin\n\t\t");
         System.out.println("Pilihan akun login");
@@ -43,9 +43,9 @@ public class SistemEkspedisi_registrasiLogin {
         //jika pilih akun user "1"
         if (pilihan.equals("1") ) {
         while (attempts < maxAttempts) {
-            System.out.print("\n\t\tUsername: ");
+            System.out.print("\nUsername\t\t: ");
             String enteredUsername = scan.nextLine();
-            System.out.print("\n\t\tPassword: ");
+            System.out.print("\nPassword\t\t: ");
             String enteredPassword = scan.nextLine();
 
             if(enteredUsername.equals(username) && enteredPassword.equals(passwordAdmin)) {
