@@ -13,9 +13,8 @@ public class biayaekspedisi {
 
     System.out.println("-------------------------------------- INPUT HARGA ------------------------------------------------");
     do {
-        System.out.println("Jenis barang: Barang Kecil/Barang besar/Elektronik kecil/Elektronik besar/Pakaian/Dokumen ");
-        System.out.print("Masukkan jenis barang\t\t\t\t: ");
-        input.next();
+        System.out.print("\nJenis barang: Barang Kecil/Barang besar/Elektronik kecil/Elektronik besar/Pakaian/Dokumen ");
+        System.out.print("\nMasukkan jenis barang\t\t\t\t: ");
         jnsBarang=input.nextLine();
         System.out.print("Masukkan berat barang\t\t\t\t: ");
         brtBarang=input.nextFloat();
@@ -34,44 +33,44 @@ public class biayaekspedisi {
             //menentukan harga
             //harga per kilogram menurut jenis barang & layanan
 
-                if (jnsBarang.equals("Barang kecil")) {
-                    if (jnsPengiriman.equals("Reguler")) {
+                if (jnsBarang.equalsIgnoreCase("Barang kecil")) {
+                    if (jnsPengiriman.equalsIgnoreCase("Reguler")) {
                         hargaPerKilogram=3000.0F;    
-                    } else if (jnsPengiriman.equals("Express")) {
+                    } else if (jnsPengiriman.equalsIgnoreCase("Express")) {
                             hargaPerKilogram=5000.0F; 
                         }
                         
-                    } else if (jnsBarang.equals("Barang besar")) {
-                        if (jnsPengiriman.equals("Reguler")) {
+                    } else if (jnsBarang.equalsIgnoreCase("Barang besar")) {
+                        if (jnsPengiriman.equalsIgnoreCase("Reguler")) {
                             hargaPerKilogram=10000.0F;
-                        } else if (jnsPengiriman.equals("Express")) {
+                        } else if (jnsPengiriman.equalsIgnoreCase("Express")) {
                             hargaPerKilogram=15000.0F;     
                         }
                         
-                    } else if (jnsBarang.equals("Elektronik kecil")) {
-                        if (jnsPengiriman.equals("Reguler")) {
+                    } else if (jnsBarang.equalsIgnoreCase("Elektronik kecil")) {
+                        if (jnsPengiriman.equalsIgnoreCase("Reguler")) {
                             hargaPerKilogram=8000.0F;
-                        } else if (jnsPengiriman.equals("Express")) {
+                        } else if (jnsPengiriman.equalsIgnoreCase("Express")) {
                             hargaPerKilogram=10000.0F;
                         }
 
-                    } else if (jnsBarang.equals("Elektronik besar")) {
-                        if (jnsPengiriman.equals("Reguler")) {
+                    } else if (jnsBarang.equalsIgnoreCase("Elektronik besar")) {
+                        if (jnsPengiriman.equalsIgnoreCase("Reguler")) {
                             hargaPerKilogram=10000.0F;
-                        } else if (jnsPengiriman.equals("Express")) {
+                        } else if (jnsPengiriman.equalsIgnoreCase("Express")) {
                             hargaPerKilogram=12000.0F;
                         }
                         
-                    } else if (jnsBarang.equals("Pakaian")) {
+                    } else if (jnsBarang.equalsIgnoreCase("Pakaian")) {
                         if (jnsPengiriman.equals("Reguler")) {
                             hargaPerKilogram=5000.0F;
-                        } else if (jnsPengiriman.equals("Express")) {
+                        } else if (jnsPengiriman.equalsIgnoreCase("Express")) {
                             hargaPerKilogram=8000.0F;
                         }
-                    } else if (jnsBarang.equals("Dokumen")) {
-                        if (jnsPengiriman.equals("Reguler")) {
+                    } else if (jnsBarang.equalsIgnoreCase("Dokumen")) {
+                        if (jnsPengiriman.equalsIgnoreCase("Reguler")) {
                             hargaPerKilogram=2000.0F;
-                        } else if (jnsPengiriman.equals("Express")) {
+                        } else if (jnsPengiriman.equalsIgnoreCase("Express")) {
                             hargaPerKilogram=4000.0F;
                         }
                     }
@@ -99,34 +98,34 @@ public class biayaekspedisi {
                     }
 
                     //menentukan asuransi
-                    if (asuransi.equals("Iya")) {
+                    if (asuransi.equalsIgnoreCase("Iya")) {
                         hrgAsuransi=10000.0F;
-                    } else if (asuransi.equals("Tidak")) {
+                    } else if (asuransi.equalsIgnoreCase("Tidak")) {
                         hrgAsuransi=0.0F;
                     }
 
                     //menentukan harga packing kayu
-                    if (pckgKayu.equals("Iya")) {
+                    if (pckgKayu.equalsIgnoreCase("Iya")) {
                         hrgPackingKayu=25000.0F;
-                    } else if (pckgKayu.equals("Tidak")) {
+                    } else if (pckgKayu.equalsIgnoreCase("Tidak")) {
                         hrgPackingKayu=0.0F;
                     }     
                 
 
             //menentukan total harga
-                ttlHarga=brtBarang*hargaPerKilogram+hrgJarak+hrgAsuransi+hrgPackingKayu;
+                ttlHarga=(brtBarang*hargaPerKilogram)+hrgJarak+hrgAsuransi+hrgPackingKayu;
 
                 System.out.println("\nHarga pengiriman\t\t\t\t: Rp " + ttlHarga);
                 System.out.println("Estimasi waktu pengiriman\t\t\t: " + estimasi);
             //
-                    System.out.println("\nApakah anda ingin memambah pesanan?(iya/tidak)");
+                    System.out.print("\nApakah anda ingin memambah pesanan?(iya/tidak)\t: ");
                     konfirmasi=input.next();
                     if (konfirmasi.equalsIgnoreCase("iya")) {
                         continue;
                     } else if(konfirmasi.equalsIgnoreCase("tidak")) {
                         break;
                     }
-                } while (konfirmasi != "tidak");    
+                } while (!konfirmasi.equalsIgnoreCase("tidak"));    
             
             // output hasil
             float ttlSemua=0;
