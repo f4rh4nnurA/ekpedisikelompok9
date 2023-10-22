@@ -1,13 +1,7 @@
-package proyek;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
 import java.util.Scanner;
 
 public class Inventori {
     public static void main(String[] args) {
-        List<Paket> paket = new ArrayList<>();
         Scanner S = new Scanner(System.in);
         boolean exitTrigger = false;
 
@@ -33,25 +27,16 @@ public class Inventori {
                 System.out.println("Masukkan berat paket: ");
                 berat = S.nextFloat();
 
-                paket.add(new Paket(generateRandomString(), nama, alamat, berat));
             } else if (pilihan == 2) {
-                for (Paket p : paket) {
-                    System.out.println("No. Resi: " + p.getNomorResi() + "\nNama: " + p.getNama() + "\nAlamat: " + p.getAlamat() + "\nBerat: " + p.getBerat());
-                }
+                    System.out.println("\nNama: " + nama + "\nAlamat: " + alamat + "\nBerat: " + berat);
             } else if (pilihan == 3) {
                 System.out.print("Masukkan nama dari detail paket yang hendak dihapus: ");
                 nama = S.nextLine();
-
-                int paketIndex = findPaketIndex(paket, nama);
-                if (paketIndex == -1) {
-                    System.out.println("Data paket tidak ditemukan!");
-                }
 
                 String confirmation = "n";
                 System.out.print("Apakah anda yakin untuk menghapus data tersebut? : ");
                 confirmation = S.next();
                 if (confirmation.equals("y")) {
-                    paket.remove(paketIndex);
                 }
             } else if (pilihan == 4) {
                 exitTrigger = true;
@@ -70,30 +55,4 @@ public class Inventori {
         }
     }
 
-    static int findPaketIndex(List<Paket> paket, String nama) {
-        int index = -1;
-
-        for (int i = 0; i < paket.size(); i++) {
-            if (paket.get(i).getNama().equals(nama)) {
-                index = i;
-                break;
-            }
-        }
-
-        return index;
-    }
-
-    public static String generateRandomString() {
-        String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-        StringBuilder sb = new StringBuilder(10);
-        Random random = new Random();
-
-        for (int i = 0; i < 10; i++) {
-            int randomIndex = random.nextInt(characters.length());
-            char randomChar = characters.charAt(randomIndex);
-            sb.append(randomChar);
-        }
-
-        return sb.toString();
-    }
 }
