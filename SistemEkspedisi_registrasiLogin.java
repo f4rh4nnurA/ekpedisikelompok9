@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class SistemEkspedisi_registrasiLogin {
         public static void main (String[] args){
-             try(Scanner input = new Scanner(System.in)){
+            try(Scanner input = new Scanner(System.in)){
             String email = " ", password1 = " ", password2 = " ", passwordAdmin = "12345",username = "admin";
             boolean valid = false, exitTrigger = false;
             int attempts = 0, maxAttempts = 3;
@@ -89,15 +89,27 @@ public class SistemEkspedisi_registrasiLogin {
             
     } 
 }
+// pilihan untuk ke bagian input harga atau inventori
+String[] noPilihan = {"Pemesanan Pengiriman", "Inventori"};
+int opsiPilihan = 0;
+do{
+    System.out.println("\n\t\tOpsi pemilihan\t\t");
+    for (int i = 0; i < noPilihan.length; i++) {
+    System.out.println((i + 1) + ". " + noPilihan[i]);
+    }
+System.out.print("Masukkan opsi pilihan : ");
+opsiPilihan = input.nextInt();
 
-//input data 
+//input data
+if(opsiPilihan == 1){ 
+
 float brtBarang, jrkPengiriman, ttlHarga, hargaPerKilogram=0, hrgJarak=0, hrgAsuransi=0, hrgPackingKayu=0;
 String jnsBarang, jnsPengiriman, asuransi, pckgKayu="error", estimasi="hari", konfirmasi;
 
-System.out.println("-------------------------------------- INPUT HARGA ------------------------------------------------");
+System.out.println("-------------------------------------- Pemesanan Pengiriman ------------------------------------------------");
 do {
-    System.out.print("\nJenis barang: Barang Kecil/Barang besar/Elektronik kecil/Elektronik besar/Pakaian/Dokumen ");
-    System.out.print("\nMasukkan jenis barang\t\t\t\t: ");
+    System.out.print("\nJenis barang : Barang Kecil/Barang besar/Elektronik kecil/Elektronik besar/Pakaian/Dokumen ");
+    System.out.println("\nMasukkan jenis barang\t\t\t\t: ");
     jnsBarang=input.nextLine();
     System.out.print("Masukkan berat barang\t\t\t\t: ");
     brtBarang=input.nextFloat();
@@ -111,8 +123,7 @@ do {
     asuransi=input.nextLine();
     System.out.print("Packing kayu(Iya/Tidak)\t\t\t\t: ");
     pckgKayu=input.nextLine();
-
-            
+         
         //menentukan harga
         //harga per kilogram menurut jenis barang & layanan
 
@@ -218,8 +229,9 @@ do {
         System.out.println("----------------------------------------------------------------------------------------------------");
 
         input.close();
-
+        }
 //inventori barang
+else if (opsiPilihan == 2){
 while(!exitTrigger) {
     byte pilihan = 0;
     String nama = "";
@@ -267,9 +279,12 @@ while(!exitTrigger) {
         input.close();
         exitTrigger = true;
     }
+    }
+} else{
+    System.out.println("Opsi yang anda pilih tidak tersedia");
+    }       
+} while (opsiPilihan != 2);  
 }
-        
-} 
 }
 }
     
