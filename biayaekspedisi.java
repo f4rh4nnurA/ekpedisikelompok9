@@ -6,88 +6,99 @@ public class biayaekspedisi {
     public static void main(String[] args) {
     
     Scanner input = new Scanner(System.in);
-    
-    //input data
-    float brtBarang, jrkPengiriman, ttlHarga, hargaPerKilogram=0, hrgJarak=0, hrgAsuransi=0, hrgPackingKayu=0;
-    String jnsBarang, jnsPengiriman, asuransi, pckgKayu="error", estimasi="hari", konfirmasi;
+    Scanner input2 = new Scanner(System.in);
 
+    //input data
+    double brtBarang, jrkPengiriman, ttlHarga, hargaPerKilogram=0, hrgJarak=0, hrgAsuransi=0, hrgPackingKayu=0, hargaAkhir=0;
+    String jnsPengiriman, asuransi, pckgKayu="error", estimasi="hari", konfirmasi;
+
+
+    System.out.print("Jumlah paket yang ingin anda kiriman: ");
+    int jmlPaket=input.nextInt();
+
+    int[] paket = new int[jmlPaket]; 
+    String[] jnsBarang = new String[jmlPaket];
+    
     System.out.println("-------------------------------------- INPUT HARGA ------------------------------------------------");
-    do {
+    
+    while (true) {
+        int i=0;
+        
         System.out.print("\nJenis barang: Barang Kecil/Barang besar/Elektronik kecil/Elektronik besar/Pakaian/Dokumen ");
         System.out.print("\nMasukkan jenis barang\t\t\t\t: ");
-        jnsBarang=input.nextLine();
+        jnsBarang[i]=input2.nextLine();
         System.out.print("Masukkan berat barang\t\t\t\t: ");
-        brtBarang=input.nextFloat();
+        brtBarang=input.nextDouble();
         System.out.print("Masukkan jenis pengiriman(Reguler/Express)\t: ");
-        input.nextLine();
-        jnsPengiriman=input.nextLine();
+        // input2.nextLine();
+        jnsPengiriman=input2.nextLine();
         System.out.print("Masukkan jarak pengiriman\t\t\t: ");
-        jrkPengiriman=input.nextFloat();
+        jrkPengiriman=input.nextDouble();
         System.out.print("Asuransi(Iya/Tidak)\t\t\t\t: ");
-        input.nextLine();
-        asuransi=input.nextLine();
+        // input2.nextLine();
+        asuransi=input2.nextLine();
         System.out.print("Packing kayu(Iya/Tidak)\t\t\t\t: ");
-        pckgKayu=input.nextLine();
+        pckgKayu=input2.nextLine();
 
                 
             //menentukan harga
             //harga per kilogram menurut jenis barang & layanan
 
-                if (jnsBarang.equalsIgnoreCase("Barang kecil")) {
+                if (jnsBarang[i].equalsIgnoreCase("Barang kecil")) {
                     if (jnsPengiriman.equalsIgnoreCase("Reguler")) {
-                        hargaPerKilogram=3000.0F;    
+                        hargaPerKilogram=3000.0;    
                     } else if (jnsPengiriman.equalsIgnoreCase("Express")) {
-                            hargaPerKilogram=5000.0F; 
+                            hargaPerKilogram=5000.0; 
                         }
                         
-                    } else if (jnsBarang.equalsIgnoreCase("Barang besar")) {
+                    } else if (jnsBarang[i].equalsIgnoreCase("Barang besar")) {
                         if (jnsPengiriman.equalsIgnoreCase("Reguler")) {
-                            hargaPerKilogram=10000.0F;
+                            hargaPerKilogram=10000.0;
                         } else if (jnsPengiriman.equalsIgnoreCase("Express")) {
-                            hargaPerKilogram=15000.0F;     
+                            hargaPerKilogram=15000.0;     
                         }
                         
-                    } else if (jnsBarang.equalsIgnoreCase("Elektronik kecil")) {
+                    } else if (jnsBarang[i].equalsIgnoreCase("Elektronik kecil")) {
                         if (jnsPengiriman.equalsIgnoreCase("Reguler")) {
-                            hargaPerKilogram=8000.0F;
+                            hargaPerKilogram=8000.0;
                         } else if (jnsPengiriman.equalsIgnoreCase("Express")) {
-                            hargaPerKilogram=10000.0F;
+                            hargaPerKilogram=10000.0;
                         }
 
-                    } else if (jnsBarang.equalsIgnoreCase("Elektronik besar")) {
+                    } else if (jnsBarang[i].equalsIgnoreCase("Elektronik besar")) {
                         if (jnsPengiriman.equalsIgnoreCase("Reguler")) {
-                            hargaPerKilogram=10000.0F;
+                            hargaPerKilogram=10000.0;
                         } else if (jnsPengiriman.equalsIgnoreCase("Express")) {
-                            hargaPerKilogram=12000.0F;
+                            hargaPerKilogram=12000.0;
                         }
                         
-                    } else if (jnsBarang.equalsIgnoreCase("Pakaian")) {
+                    } else if (jnsBarang[i].equalsIgnoreCase("Pakaian")) {
                         if (jnsPengiriman.equals("Reguler")) {
-                            hargaPerKilogram=5000.0F;
+                            hargaPerKilogram=5000.0;
                         } else if (jnsPengiriman.equalsIgnoreCase("Express")) {
-                            hargaPerKilogram=8000.0F;
+                            hargaPerKilogram=8000.0;
                         }
-                    } else if (jnsBarang.equalsIgnoreCase("Dokumen")) {
+                    } else if (jnsBarang[i].equalsIgnoreCase("Dokumen")) {
                         if (jnsPengiriman.equalsIgnoreCase("Reguler")) {
-                            hargaPerKilogram=2000.0F;
+                            hargaPerKilogram=2000.0;
                         } else if (jnsPengiriman.equalsIgnoreCase("Express")) {
-                            hargaPerKilogram=4000.0F;
+                            hargaPerKilogram=4000.0;
                         }
                     }
 
                     //harga per kilogram menurut jarak pengiriman
                     if (jrkPengiriman < 50) {
-                        hrgJarak=7000.0F;
+                        hrgJarak=7000.0;
                     } else if (jrkPengiriman < 100) {
-                        hrgJarak=10000.0F;
+                        hrgJarak=10000.0;
                     } else if (jrkPengiriman < 300 ) {
-                        hrgJarak=15000.0F;
+                        hrgJarak=15000.0;
                     } else if (jrkPengiriman < 500 ) {
-                        hrgJarak=20000.0F;
+                        hrgJarak=20000.0;
                     } else if (jrkPengiriman < 700) {
-                        hrgJarak=25000.0F;  
+                        hrgJarak=25000.0;  
                     } else if (jrkPengiriman < 1000) {
-                        hrgJarak=35000.0F;
+                        hrgJarak=35000.0;
                     }
 
                     //menampilkan estimasi waktu
@@ -99,21 +110,22 @@ public class biayaekspedisi {
 
                     //menentukan asuransi
                     if (asuransi.equalsIgnoreCase("Iya")) {
-                        hrgAsuransi=10000.0F;
+                        hrgAsuransi=10000.0;
                     } else if (asuransi.equalsIgnoreCase("Tidak")) {
-                        hrgAsuransi=0.0F;
+                        hrgAsuransi=0.0;
                     }
 
                     //menentukan harga packing kayu
                     if (pckgKayu.equalsIgnoreCase("Iya")) {
-                        hrgPackingKayu=25000.0F;
+                        hrgPackingKayu=25000.0;
                     } else if (pckgKayu.equalsIgnoreCase("Tidak")) {
-                        hrgPackingKayu=0.0F;
+                        hrgPackingKayu=0.0;
                     }     
                 
 
             //menentukan total harga
                 ttlHarga=(brtBarang*hargaPerKilogram)+hrgJarak+hrgAsuransi+hrgPackingKayu;
+                hargaAkhir = hargaAkhir + ttlHarga;
 
                 System.out.println("\nHarga pengiriman\t\t\t\t: Rp " + ttlHarga);
                 System.out.println("Estimasi waktu pengiriman\t\t\t: " + estimasi);
@@ -125,13 +137,19 @@ public class biayaekspedisi {
                     } else if(konfirmasi.equalsIgnoreCase("tidak")) {
                         break;
                     }
-                } while (!konfirmasi.equalsIgnoreCase("tidak"));    
+
+                    i++;
+
+                } 
             
             // output hasil
-            float ttlSemua=0;
-                    ttlSemua += ttlHarga;
-            System.out.println("\nTotal Harga pengiriman\t\t\t\t: Rp " + ttlSemua);
 
+            System.out.println("\n----------------------------------------------------------------------------------------------------");   
+            for (int i = 0; i < paket.length; i++) {
+                System.out.println("\nJenis barang ke-" + (i+1) + " : " + jnsBarang[i]);
+            }
+
+            System.out.println("Total Harga pengiriman\t\t\t\t: Rp " + hargaAkhir);
             System.out.println("----------------------------------------------------------------------------------------------------");
 
             input.close();
