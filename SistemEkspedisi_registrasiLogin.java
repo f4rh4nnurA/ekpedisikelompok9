@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class SistemEkspedisi_registrasiLogin {
     public static void main (String[] arg){
         Scanner input = new Scanner(System.in);
-        String  users[] = new String[2] , Admin[] = {"klotaks","jfeigeokg"}, password[] = new String [1] ,username = "";
+        String  dataAwal[][] = new String[2][2] , Admin[] = {"klotaks","jfeigeokg"};
         boolean valid = false;
         int attempts = 0, pilihan;
         
@@ -19,7 +19,7 @@ public class SistemEkspedisi_registrasiLogin {
             while ((!valid) && (attempts < 3)){ 
                 System.out.println("\n\t\tRegistrasi");  
                 System.out.print("Masukkan Email\t\t: ");
-                users[0] = input.next();
+                dataAwal[0][0] = input.next();
                 System.out.print("\nMasukkan Password1\t: ");
                 String password1 = input.next();
                 System.out.print("\nMasukkan Password2\t: ");
@@ -27,7 +27,7 @@ public class SistemEkspedisi_registrasiLogin {
                 // cek status registrasi
                 if(password1.equals(password2)){
                     System.out.println("Registrasi berhasil");
-                    users[1] = password1;
+                    dataAwal[0][1] = password1;
                     valid = true;
                 }else{
                     System.out.println("Registrasi gagal");
@@ -49,8 +49,8 @@ public class SistemEkspedisi_registrasiLogin {
                     System.out.print("\nMasukkan Password\t: ");
                     String loginPassword = input.next();
                     
-                    if(loginEmail.equals(users[0]) && loginPassword.equals(users[1])){
-                        System.out.println("Login berhasil");
+                    if(loginEmail.equals(dataAwal[0][0]) && loginPassword.equals(dataAwal[0][1])){
+                        System.out.println("Selamat Datang Admin");
                         valid = true;
                     }else{
                         System.out.println("Login gagal");
@@ -61,18 +61,20 @@ public class SistemEkspedisi_registrasiLogin {
                     System.out.println("Anda sudah mencapai batas perulangan");
                 }
             }
-        }    
+        } 
+
+        // Admin   
         else if (pilihan == 2){
             while ((!valid) && (attempts < 3)){
                 System.out.println("\n\t\tLogin");
                 System.out.print("Masukkan Username: ");
-                username = input.next();
+                dataAwal[1][0] = input.next();
                 System.out.print("\nMasukkan password1: ");
-                password[0] = input.next();
-                if((password[0].equals(Admin[1])) && (username.equals(Admin[0]))){
+                dataAwal[1][1] = input.next();
+                if((dataAwal[1][1].equals(Admin[1])) && (dataAwal[1][0].equals(Admin[0]))){
                     System.out.println("Login berhasil");
                     valid = true;
-                }else if((password[0] != Admin[1]) && (attempts < 3) && (username != Admin[0])){
+                }else if((dataAwal[1][1] != Admin[1]) && (attempts < 3) && (dataAwal[1][0] != Admin[0])){
                     System.out.print("Login gagal");
                     attempts++;
                 } else{
@@ -83,6 +85,6 @@ public class SistemEkspedisi_registrasiLogin {
                 System.out.print(", piye to! admin kok ora iso login");
             }
         } 
+        input.close();
     }
 }
-    
