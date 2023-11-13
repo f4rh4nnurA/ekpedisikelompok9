@@ -1,4 +1,4 @@
-package proyek;
+package inventori;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,83 +7,94 @@ import java.util.Scanner;
 
 public class Inventori {
     public static void main(String[] args) {
-        List<Paket> paket = new ArrayList<>();
-        Scanner S = new Scanner(System.in);
+        List<Paket> paketList = new ArrayList<>();
+        Scanner scanner = new Scanner(System.in);
+
         boolean exitTrigger = false;
 
-        while(!exitTrigger) {
-            byte pilihan = 0;
-            String nama = "";
-            String alamat = "";
-            float berat = 0f;
+        while (!exitTrigger) {
+            printMenuOptions();
 
-            System.out.println("1.) Menambahkan data paket");
-            System.out.println("2.) Melihat list data paket");
-            System.out.println("3.) Menghapus data paket");
-            System.out.println("4.) Kembali ke menu utama");
-            System.out.print(": ");
-            pilihan = S.nextByte();
-            S.nextLine();
+            byte choice = scanner.nextByte();
+            scanner.nextLine(); // Consume the newline character
 
-            if (pilihan == 1) {
-                System.out.println("Masukkan nama paket: ");
-                nama = S.nextLine();
-                System.out.println("Masukkan alamat paket: ");
-                alamat = S.nextLine();
-                System.out.println("Masukkan berat paket: ");
-                berat = S.nextFloat();
-
-                paket.add(new Paket(generateRandomString(), nama, alamat, berat));
-            } else if (pilihan == 2) {
-                for (Paket p : paket) {
-                    System.out.println("No. Resi: " + p.getNomorResi() + "\nNama: " + p.getNama() + "\nAlamat: " + p.getAlamat() + "\nBerat: " + p.getBerat());
-                }
-            } else if (pilihan == 3) {
-                System.out.print("Masukkan nama dari detail paket yang hendak dihapus: ");
-                nama = S.nextLine();
-
-                int paketIndex = findPaketIndex(paket, nama);
-                if (paketIndex == -1) {
-                    System.out.println("Data paket tidak ditemukan!");
-                }
-
-                String confirmation = "n";
-                System.out.print("Apakah anda yakin untuk menghapus data tersebut? : ");
-                confirmation = S.next();
-                if (confirmation.equals("y")) {
-                    paket.remove(paketIndex);
-                }
-            } else if (pilihan == 4) {
-                exitTrigger = true;
-            } else {
-                System.out.println("Tolong masukkan nomor sesuai opsi yang akan dipilih");
+            switch (choice) {
+                case 1:
+                    addPaket(scanner, paketList);
+                    break;
+                case 2:
+                    displayPaketList(paketList);
+                    break;
+                case 3:
+                    deletePaket(scanner, paketList);
+                    break;
+                case 4:
+                    exitTrigger = true;
+                    break;
+                default:
+                    System.out.println("Tolong masukkan nomor sesuai opsi yang akan dipilih");
             }
 
-            String confirmation = "n";
             System.out.print("Apakah anda hendak melakukan aksi lain: (y/n) ");
-            confirmation = S.next();
+            String confirmation = scanner.next();
 
-            if (confirmation.equals("n")) {
-                S.close();
+            if (!confirmation.equalsIgnoreCase("y")) {
                 exitTrigger = true;
             }
         }
     }
 
-    static int findPaketIndex(List<Paket> paket, String nama) {
-        int index = -1;
-
-        for (int i = 0; i < paket.size(); i++) {
-            if (paket.get(i).getNama().equals(nama)) {
-                index = i;
-                break;
-            }
-        }
-
-        return index;
+    private static void printMenuOptions() {
+        System.out.println("1.) Menambahkan data paket");
+        System.out.println("2.) Melihat list data paket");
+        System.out.println("3.) Menghapus data paket");
+        System.out.println("4.) Kembali ke menu utama");
+        System.out.print(": ");
     }
 
-    public static String generateRandomString() {
+    private static void addPaket(Scanner scanner, List<Paket> paketList) {
+        System.out.println("Masukkan nama paket: ");
+        String nama = scanner.nextLine();
+        System.out.println("Masukkan alamat paket: ");
+        String alamat = scanner.nextLine();
+        System.out.println("Masukkan berat paket: ");
+        float berat = scanner.nextFloat();
+
+        paketList.add(new Paket(generateRandomString(), nama, alamat, berat));
+    }
+
+    private static void displayPaketList(List<Paket> paketList) {
+        for (Paket p : paketList) {
+            System.out.println("No. Resi: " + p.getNomorResi() + "\nNama: " + p.getNama() + "\nAlamat: " + p.getAlamat() + "\nBerat: " + p.getBerat());
+        }
+    }
+
+    private static void deletePaket(Scanner scanner, List<Paket> paketList) {
+        System.out.print("Masukkan nama dari detail paket yang hendak dihapus: ");
+        String nama = scanner.nextLine();
+
+        int paketIndex = findPaketIndex(paketList, nama);
+        if (paketIndex == -1) {
+            System.out.println("Data paket tidak ditemukan!");
+        } else {
+            System.out.print("Apakah anda yakin untuk menghapus data tersebut? (y/n): ");
+            String confirmation = scanner.next();
+            if (confirmation.equalsIgnoreCase("y")) {
+                paketList.remove(paketIndex);
+            }
+        }
+    }
+
+    private static int findPaketIndex(List<Paket> paketList, String nama) {
+        for (int i = 0; i < paketList.size(); i++) {
+            if (paketList.get(i).getNama().equals(nama)) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    private static String generateRandomString() {
         String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
         StringBuilder sb = new StringBuilder(10);
         Random random = new Random();
@@ -95,5 +106,37 @@ public class Inventori {
         }
 
         return sb.toString();
+    }
+
+    static class Paket {
+        private String nomorResi;
+        private String nama;
+        private String alamat;
+        private float berat;
+
+        public Paket(String nomorResi, String nama, String alamat, float berat) {
+            this.nomorResi = nomorResi;
+            this.nama = nama;
+            this.alamat = alamat;
+            this.berat = berat;
+        }
+
+        public String getNomorResi() {
+            return nomorResi;
+        }
+
+        public String getNama() {
+            return nama;
+        }
+
+        public String getAlamat() {
+            return alamat;
+        }
+
+        public float getBerat() {
+            return berat;
+        }
+
+
     }
 }
