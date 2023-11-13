@@ -153,6 +153,7 @@ public class biayaekspedisi {
             System.out.println("----------------------------------------------------------------------------------------------------");
 
             input.close();
+            input2.close();
     }
     
 }
