@@ -1,3 +1,8 @@
+
+-----------------------------------------BIAYA EKSPEDISI-----------------------------------------
+
+  Biaya ekspedisi adalah kode pemrogroman yang berfokus pada perhitungan biaya paket ekspedisi.
+
 SISTEM EKSPEDISI
 
 Deksripsi Sistem Ekspedisi
@@ -20,3 +25,4 @@ Kontribusi
 SAFIRO ALFARISI HARAYA FARHAN NUR ALIFIAN IRSA CAHAYA WIDODO
 
 Kelompok 9 Kelas 1A
+
