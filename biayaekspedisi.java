@@ -1,4 +1,4 @@
-package projectsem1;
+
 
 import java.util.Scanner;
 
