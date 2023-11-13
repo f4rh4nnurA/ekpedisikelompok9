@@ -1,15 +1,22 @@
+<<<<<<< HEAD
 package inventori;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+=======
+>>>>>>> 9fbbe23eb1ab56798c187edfa3445eda77786bad
 import java.util.Scanner;
 
 public class Inventori {
     public static void main(String[] args) {
+<<<<<<< HEAD
         List<Paket> paketList = new ArrayList<>();
         Scanner scanner = new Scanner(System.in);
 
+=======
+        Scanner S = new Scanner(System.in);
+>>>>>>> 9fbbe23eb1ab56798c187edfa3445eda77786bad
         boolean exitTrigger = false;
 
         while (!exitTrigger) {
@@ -18,6 +25,7 @@ public class Inventori {
             byte choice = scanner.nextByte();
             scanner.nextLine(); // Consume the newline character
 
+<<<<<<< HEAD
             switch (choice) {
                 case 1:
                     addPaket(scanner, paketList);
@@ -33,6 +41,31 @@ public class Inventori {
                     break;
                 default:
                     System.out.println("Tolong masukkan nomor sesuai opsi yang akan dipilih");
+=======
+            if (pilihan == 1) {
+                System.out.println("Masukkan nama paket: ");
+                nama = S.nextLine();
+                System.out.println("Masukkan alamat paket: ");
+                alamat = S.nextLine();
+                System.out.println("Masukkan berat paket: ");
+                berat = S.nextFloat();
+
+            } else if (pilihan == 2) {
+                    System.out.println("\nNama: " + nama + "\nAlamat: " + alamat + "\nBerat: " + berat);
+            } else if (pilihan == 3) {
+                System.out.print("Masukkan nama dari detail paket yang hendak dihapus: ");
+                nama = S.nextLine();
+
+                String confirmation = "n";
+                System.out.print("Apakah anda yakin untuk menghapus data tersebut? : ");
+                confirmation = S.next();
+                if (confirmation.equals("y")) {
+                }
+            } else if (pilihan == 4) {
+                exitTrigger = true;
+            } else {
+                System.out.println("Tolong masukkan nomor sesuai opsi yang akan dipilih");
+>>>>>>> 9fbbe23eb1ab56798c187edfa3445eda77786bad
             }
 
             System.out.print("Apakah anda hendak melakukan aksi lain: (y/n) ");
@@ -44,6 +77,7 @@ public class Inventori {
         }
     }
 
+<<<<<<< HEAD
     private static void printMenuOptions() {
         System.out.println("1.) Menambahkan data paket");
         System.out.println("2.) Melihat list data paket");
@@ -140,3 +174,6 @@ public class Inventori {
 
     }
 }
+=======
+}
+>>>>>>> 9fbbe23eb1ab56798c187edfa3445eda77786bad
