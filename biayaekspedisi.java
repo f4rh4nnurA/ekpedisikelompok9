@@ -1,5 +1,4 @@
 
-
 import java.util.Scanner;
 
 public class biayaekspedisi {
@@ -11,21 +10,22 @@ public class biayaekspedisi {
     //input data
     double brtBarang, jrkPengiriman, ttlHarga, hargaPerKilogram=0, hrgJarak=0, hrgAsuransi=0, hrgPackingKayu=0, hargaAkhir=0;
     String jnsPengiriman, asuransi, pckgKayu="error", estimasi="hari", konfirmasi;
-
-
+    
+    
     System.out.print("Jumlah paket yang ingin anda kiriman: ");
     int jmlPaket=input.nextInt();
-
+    
     int[] paket = new int[jmlPaket]; 
     String[] jnsBarang = new String[jmlPaket];
+    int[] resi = new int[jmlPaket];
     
-    System.out.println("-------------------------------------- INPUT HARGA ------------------------------------------------");
+    System.out.println("-------------------------------------- INPUT PESANAN ------------------------------------------------");
     
+    int i=0;
     while (true) {
-        int i=0;
         
-        System.out.print("\nJenis barang: Barang Kecil/Barang besar/Elektronik kecil/Elektronik besar/Pakaian/Dokumen ");
-        System.out.print("\nMasukkan jenis barang\t\t\t\t: ");
+        System.out.print("\nJenis barang: Barang Kecil/Barang besar/Elektronik kecil/Elektronik besar/Pakaian/Dokumen \n");
+        System.out.print("Masukkan jenis barang\t\t\t\t: ");
         jnsBarang[i]=input2.nextLine();
         System.out.print("Masukkan berat barang\t\t\t\t: ");
         brtBarang=input.nextDouble();
@@ -121,15 +121,71 @@ public class biayaekspedisi {
                     } else if (pckgKayu.equalsIgnoreCase("Tidak")) {
                         hrgPackingKayu=0.0;
                     }     
-                
+                    
+                    
+                    //menentukan total harga
+                    ttlHarga=(brtBarang*hargaPerKilogram)+hrgJarak+hrgAsuransi+hrgPackingKayu;
+                    hargaAkhir = hargaAkhir + ttlHarga;
+                    
+                    
+                    System.out.print("\nHarga pengiriman\t\t\t\t: Rp " + ttlHarga);
+                    System.out.print("\nEstimasi waktu pengiriman\t\t\t: " + estimasi + "\n");
+                    //
+                    //resi saya tentukan berdasarkan pesanan ke berapa pada hari itu
+                    if (jnsBarang[i].equalsIgnoreCase("Barang kecil")) {
+                    if (jnsPengiriman.equalsIgnoreCase("Reguler")) {
+                        resi[i] = i+1;
+                        System.out.println("Nomer resi anda \t\t\t\t: BKR"+resi[i]);    
+                    } else if (jnsPengiriman.equalsIgnoreCase("Express")) {
+                            resi[i] = i+1;
+                            System.out.println("Nomer resi anda \t\t\t\t: BKE"+resi[i]);
+                        }
+                        
+                    } else if (jnsBarang[i].equalsIgnoreCase("Barang besar")) {
+                        if (jnsPengiriman.equalsIgnoreCase("Reguler")) {
+                            resi[i] = i+1;
+                            System.out.println("Nomer resi anda \t\t\t\t: BBR"+resi[i]);
+                        } else if (jnsPengiriman.equalsIgnoreCase("Express")) {
+                            resi[i] = i+1;
+                            System.out.println("Nomer resi anda \t\t\t\t: BBE"+resi[i]);     
+                        }
+                        
+                    } else if (jnsBarang[i].equalsIgnoreCase("Elektronik kecil")) {
+                        if (jnsPengiriman.equalsIgnoreCase("Reguler")) {
+                            resi[i] = i+1;
+                            System.out.println("Nomer resi anda \t\t\t\t: EKR"+resi[i]);
+                        } else if (jnsPengiriman.equalsIgnoreCase("Express")) {
+                            resi[i] = i+1;
+                            System.out.println("Nomer resi anda \t\t\t\t: EKE"+resi[i]);
+                        }
 
-            //menentukan total harga
-                ttlHarga=(brtBarang*hargaPerKilogram)+hrgJarak+hrgAsuransi+hrgPackingKayu;
-                hargaAkhir = hargaAkhir + ttlHarga;
-
-                System.out.println("\nHarga pengiriman\t\t\t\t: Rp " + ttlHarga);
-                System.out.println("Estimasi waktu pengiriman\t\t\t: " + estimasi);
-            //
+                    } else if (jnsBarang[i].equalsIgnoreCase("Elektronik besar")) {
+                        if (jnsPengiriman.equalsIgnoreCase("Reguler")) {
+                            resi[i] = i+1;
+                            System.out.println("Nomer resi anda \t\t\t\t: EBR"+resi[i]);
+                        } else if (jnsPengiriman.equalsIgnoreCase("Express")) {
+                            resi[i] = i+1;
+                            System.out.println("Nomer resi anda \t\t\t\t: EBE"+resi[i]);
+                        }
+                        
+                    } else if (jnsBarang[i].equalsIgnoreCase("Pakaian")) {
+                        if (jnsPengiriman.equals("Reguler")) {
+                            resi[i] = i+1;
+                            System.out.println("Nomer resi anda \t\t\t\t: PR"+resi[i]);
+                        } else if (jnsPengiriman.equalsIgnoreCase("Express")) {
+                            resi[i] = i+1;
+                            System.out.println("Nomer resi anda \t\t\t\t: PE"+resi[i]);
+                        }
+                    } else if (jnsBarang[i].equalsIgnoreCase("Dokumen")) {
+                        if (jnsPengiriman.equalsIgnoreCase("Reguler")) {
+                            resi[i] = i+1;
+                            System.out.println("Nomer resi anda \t\t\t\t: DR"+resi[i]);
+                        } else if (jnsPengiriman.equalsIgnoreCase("Express")) {
+                            resi[i] = i+1;
+                            System.out.println("Nomer resi anda \t\t\t\t: DE"+resi[i]);
+                        }
+                    }
+                    
                     System.out.print("\nApakah anda ingin memambah pesanan?(iya/tidak)\t: ");
                     konfirmasi=input.next();
                     if (konfirmasi.equalsIgnoreCase("iya")) {
@@ -137,20 +193,20 @@ public class biayaekspedisi {
                     } else if(konfirmasi.equalsIgnoreCase("tidak")) {
                         break;
                     }
-
                     i++;
+                    
 
                 } 
             
             // output hasil
 
             System.out.println("\n----------------------------------------------------------------------------------------------------");   
-            for (int i = 0; i < paket.length; i++) {
-                System.out.println("\nJenis barang ke-" + (i+1) + " : " + jnsBarang[i]);
+            for (int j = 0; j < paket.length; j++) {
+                System.out.print("\nJenis barang ke-" + (j+1) + " \t\t\t\t: " + jnsBarang[i]);
             }
 
-            System.out.println("Total Harga pengiriman\t\t\t\t: Rp " + hargaAkhir);
-            System.out.println("----------------------------------------------------------------------------------------------------");
+            System.out.print("\nTotal Harga pengiriman\t\t\t\t: Rp " + hargaAkhir);
+            System.out.println("\n----------------------------------------------------------------------------------------------------");
 
             input.close();
             input2.close();
