@@ -1,8 +1,4 @@
 
------------------------------------------BIAYA EKSPEDISI-----------------------------------------
-
-  Biaya ekspedisi adalah kode pemrogroman yang berfokus pada perhitungan biaya paket ekspedisi.
-
 SISTEM EKSPEDISI
 
 Deksripsi Sistem Ekspedisi
