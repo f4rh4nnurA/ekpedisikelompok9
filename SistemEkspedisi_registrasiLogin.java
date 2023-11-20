@@ -4,7 +4,7 @@ public class SistemEkspedisi_registrasiLogin {
     public static void main (String[] arg){
         Scanner input = new Scanner(System.in);
         String  dataAwal[][] = new String[2][2] , Admin[] = {"klotaks","jfeigeokg"};
-        boolean valid = false;
+        boolean validU = false, validA = false;
         int attempts = 0, pilihan;
         
         //Bagian laman pertama aplikasi
@@ -16,7 +16,7 @@ public class SistemEkspedisi_registrasiLogin {
         
         //User
         if(pilihan == 1){
-            while ((!valid) && (attempts < 3)){ 
+            while ((!validU) && (attempts < 3)){ 
                 System.out.println("\n\t\tRegistrasi");  
                 System.out.print("Masukkan Email\t\t: ");
                 dataAwal[0][0] = input.next();
@@ -28,21 +28,21 @@ public class SistemEkspedisi_registrasiLogin {
                 if(password1.equals(password2)){
                     System.out.println("Registrasi berhasil");
                     dataAwal[0][1] = password1;
-                    valid = true;
+                    validU = true;
                 }else{
                     System.out.println("Registrasi gagal");
                     attempts++;
                 }
             }
-            if (!valid) {
+            if (!validU) {
                 System.out.println("Anda sudah mencapai batas perulangan, silahkan hubungi admin");
             }
             
             //Login
-            if(valid){
+            if(validU){
                 attempts = 0; // reset attempts untuk login
-                valid = false; // reset valid untuk login
-                while ((!valid) && (attempts < 3)){
+                validU= false; // reset valid untuk login
+                while ((!validU) && (attempts < 3)){
                     System.out.println("\n\t\tLogin");
                     System.out.print("Masukkan Email\t\t: ");
                     String loginEmail = input.next();
@@ -51,21 +51,22 @@ public class SistemEkspedisi_registrasiLogin {
                     
                     if(loginEmail.equals(dataAwal[0][0]) && loginPassword.equals(dataAwal[0][1])){
                         System.out.println("Selamat Datang Admin");
-                        valid = true;
+                        validU = true;
                     }else{
                         System.out.println("Login gagal");
                         attempts++;
                     }
                 }
-                if (!valid) {
+                if (!validU) {
                     System.out.println("Anda sudah mencapai batas perulangan");
                 }
             }
+            String [] fitur = {"Kirim Barang", "Perkiraan biaya ekspedisi", "Akun", "Transaksi"}; 
         } 
 
         // Admin   
         else if (pilihan == 2){
-            while ((!valid) && (attempts < 3)){
+            while ((!validA) && (attempts < 3)){
                 System.out.println("\n\t\tLogin");
                 System.out.print("Masukkan Username: ");
                 dataAwal[1][0] = input.next();
@@ -73,17 +74,18 @@ public class SistemEkspedisi_registrasiLogin {
                 dataAwal[1][1] = input.next();
                 if((dataAwal[1][1].equals(Admin[1])) && (dataAwal[1][0].equals(Admin[0]))){
                     System.out.println("Login berhasil");
-                    valid = true;
+                    validA = true;
                 }else if((dataAwal[1][1] != Admin[1]) && (attempts < 3) && (dataAwal[1][0] != Admin[0])){
                     System.out.print("Login gagal");
                     attempts++;
                 } else{
-                    valid = false;
+                    validA = false;
                 }
             }
-            if (!valid) {
+            if (!validA) {
                 System.out.print(", piye to! admin kok ora iso login");
             }
+            
         } 
         input.close();
     }
