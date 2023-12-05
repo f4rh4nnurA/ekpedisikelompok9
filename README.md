@@ -1,4 +1,3 @@
-
 SISTEM EKSPEDISI
 
 Deksripsi Sistem Ekspedisi
@@ -8,9 +7,6 @@ Sistem ekspedisi berbasis command line adalah sebuah perangkat lunak yang diranc
 Tujuan Sistem Ekspedisi
 
 Meningkatkan Efisiensi Operasional: Sistem ekspedisi membantu mengotomatisasi banyak aspek operasional, seperti penjadwalan pengiriman, pelacakan paket, dan manajemen persediaan. Ini mengurangi kesalahan manusia, menghemat waktu, dan sumber daya.
-
-Peningkatan Akurasi: Dengan otomatisasi dan pelacakan real-time, sistem ekspedisi dapat meningkatkan akurasi dalam pemrosesan pesanan,
-pelacakan pengiriman, dan manajemen persediaan. Hal ini membantu mengurangi kesalahan dan meningkatkan kepuasan pelanggan.
 
 Optimisasi Rute: Sistem ekspedisi dapat menghitung rute pengiriman terbaik berdasarkan faktor-faktor seperti jarak, waktu tempuh, dan kendaraan yang tersedia. Ini membantu mengurangi biaya bahan bakar, menghemat waktu, dan mengurangi jejak karbon.
 
