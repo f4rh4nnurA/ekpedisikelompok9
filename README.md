@@ -1,8 +1,3 @@
-- Sistem Ekspedisi Kelompok 9 -
-* Fitur Inventori *
-  Inventori merupakan sebuah kode program yang nantinya bertujuan untuk mendapat sebuah program untuk penyimpanan di gudang secara lebih efisien
-  
-
 SISTEM EKSPEDISI
 
 Deksripsi Sistem Ekspedisi
@@ -24,4 +19,3 @@ Kontribusi
 SAFIRO ALFARISI HARAYA FARHAN NUR ALIFIAN IRSA CAHAYA WIDODO
 
 Kelompok 9 Kelas 1A
-
