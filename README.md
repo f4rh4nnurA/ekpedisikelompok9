@@ -1,8 +1,3 @@
-- Sistem Ekspedisi Kelompok 9 -
-* Fitur Inventori *
-  Inventori merupakan sebuah kode program yang nantinya bertujuan untuk mendapat sebuah program untuk penyimpanan di gudang secara lebih efisien
-  
-
 SISTEM EKSPEDISI
 
 Deksripsi Sistem Ekspedisi
@@ -13,8 +8,6 @@ Tujuan Sistem Ekspedisi
 
 Meningkatkan Efisiensi Operasional: Sistem ekspedisi membantu mengotomatisasi banyak aspek operasional, seperti penjadwalan pengiriman, pelacakan paket, dan manajemen persediaan. Ini mengurangi kesalahan manusia, menghemat waktu, dan sumber daya.
 
-Peningkatan Akurasi: Dengan otomatisasi dan pelacakan real-time, sistem ekspedisi dapat meningkatkan akurasi dalam pemrosesan pesanan, pelacakan pengiriman, dan manajemen persediaan. Hal ini membantu mengurangi kesalahan dan meningkatkan kepuasan pelanggan.
-
 Optimisasi Rute: Sistem ekspedisi dapat menghitung rute pengiriman terbaik berdasarkan faktor-faktor seperti jarak, waktu tempuh, dan kendaraan yang tersedia. Ini membantu mengurangi biaya bahan bakar, menghemat waktu, dan mengurangi jejak karbon.
 
 Peningkatan Layanan Pelanggan: Dengan memberikan pelacakan paket yang akurat dan estimasi waktu tiba yang lebih baik, sistem ekspedisi meningkatkan pengalaman pelanggan. Pelanggan dapat memantau status pengiriman secara real-time dan merasa lebih terhubung dengan layanan Anda.
@@ -24,3 +17,4 @@ Kontribusi
 SAFIRO ALFARISI HARAYA FARHAN NUR ALIFIAN IRSA CAHAYA WIDODO
 
 Kelompok 9 Kelas 1A
+
