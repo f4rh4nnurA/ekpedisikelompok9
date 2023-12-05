@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class SistemEkspedisi_registrasiLogin  {
-    private static String[][] dataAwal = new String[2][2];
+    private static String[][] dataAwal = new String[4][3];
     private static String[] Admin = {"klotaks", "jfeigeokg"};
     private static boolean validU = false, validA = false;
     private static int attempts = 0, pilihan;
@@ -23,8 +23,9 @@ public class SistemEkspedisi_registrasiLogin  {
             if (validU) {
                 login(input);
                 System.out.println("1. Ganti Password");
-                System.out.println("2. Hapus Email");
+                System.out.println("2. Ganti Email");
                 System.out.println("3. Kembali");
+                System.out.println("4. Kirim barang");
                 System.out.print("Masukkan pilihan (1/2/3) : ");
                 int pilihanUser = input.nextInt();
                 if (pilihanUser == 1) {
@@ -131,7 +132,7 @@ public class SistemEkspedisi_registrasiLogin  {
             }
         }
         if (!validA) {
-            System.out.print(", piye to! admin kok ora iso login");
+            System.out.print(", Kesempatan anda sudah habis");
         }
     }
 }
