@@ -1,6 +1,6 @@
-import java.util.Scanner;
+public import java.util.Scanner;
 
-public class SistemEkspedisi_Inventori {
+public class SistemEkspedisiInventori {
     public static void main (String[] args){
         Scanner input = new Scanner(System.in);
         String  dataAwal[][] = new String[2][2] , Admin[] = {"klotaks","jfeigeokg"};
@@ -143,4 +143,6 @@ public class SistemEkspedisi_Inventori {
 
     input.close();
 }
-    }
+    } {
+    
+}
