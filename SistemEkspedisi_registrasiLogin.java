@@ -119,9 +119,9 @@ public class SistemEkspedisi_registrasiLogin  {
     public static void loginAdmin(Scanner input) {
         while ((!validA) && (attempts < 3)) {
             System.out.println("\n\t\tLogin");
-            System.out.print("Masukkan Username: ");
+            System.out.print("Masukkan Username\t\t: ");
             dataAwal[1][0] = input.next(); // dataAwal[1][0] digunakan untuk input username login Admin 
-            System.out.print("\nMasukkan password1: ");
+            System.out.print("\nMasukkan password1\t\t: ");
             dataAwal[1][1] = input.next(); // dataAwal[1][1] digunakan untuk input password login admin
             if ((dataAwal[1][1].equals(Admin[1])) && (dataAwal[1][0].equals(Admin[0]))) {
                 System.out.println("Login berhasil");
