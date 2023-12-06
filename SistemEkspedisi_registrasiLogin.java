@@ -1,8 +1,8 @@
 import java.util.Scanner;
 
 public class SistemEkspedisi_registrasiLogin  {
-    private static String[][] dataAwal = new String[4][3];
-    private static String[] Admin = {"klotaks", "jfeigeokg"};
+    private static String[][] dataAwal = new String[2][2];
+    private static String[] Admin = {"klotaks", "jfeigeokg"}; // klotaks sebagai username admin, jfeigeokg sebagai password admin
     private static boolean validU = false, validA = false;
     private static int attempts = 0, pilihan;
     private static String username = null;
@@ -14,7 +14,7 @@ public class SistemEkspedisi_registrasiLogin  {
         System.out.println("\t\tSelamat Datang di Aplikasi Xpedisi");
         System.out.println("1. User");
         System.out.println("2. Admin");
-        System.out.print("Masukkan pilihan (1/2) : ");
+        System.out.print("Masukkan pilihan (1 / 2) : ");
         pilihan = input.nextInt();
 
         //User
@@ -51,7 +51,7 @@ public class SistemEkspedisi_registrasiLogin  {
             System.out.print("Masukkan username anda: ");
             username = input.next();
             System.out.print("Masukkan Email\t\t: ");
-            dataAwal[0][0] = input.next();
+            dataAwal[0][0] = input.next(); // dataAwal [0][0] digunakan sebagai email registrasi
             System.out.print("\nMasukkan Password1\t: ");
             String password1 = input.next();
             System.out.print("\nMasukkan Password2\t: ");
@@ -60,6 +60,7 @@ public class SistemEkspedisi_registrasiLogin  {
             if (password1.equals(password2)) {
                 System.out.println("Registrasi berhasil");
                 dataAwal[0][1] = password1;
+                 // dataAwal[0][1] digunakan sebagai password1 registrasi 
                 validU = true;
             } else {
                 System.out.println("Registrasi gagal");
@@ -118,9 +119,9 @@ public class SistemEkspedisi_registrasiLogin  {
         while ((!validA) && (attempts < 3)) {
             System.out.println("\n\t\tLogin");
             System.out.print("Masukkan Username: ");
-            dataAwal[1][0] = input.next();
+            dataAwal[1][0] = input.next(); // dataAwal[1][0] digunakan untuk input username login Admin 
             System.out.print("\nMasukkan password1: ");
-            dataAwal[1][1] = input.next();
+            dataAwal[1][1] = input.next(); // dataAwal[1][1] digunakan untuk input password login admin
             if ((dataAwal[1][1].equals(Admin[1])) && (dataAwal[1][0].equals(Admin[0]))) {
                 System.out.println("Login berhasil");
                 validA = true;
