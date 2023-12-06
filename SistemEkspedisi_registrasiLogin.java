@@ -14,7 +14,7 @@ public class SistemEkspedisi_registrasiLogin  {
         System.out.println("\t\tSelamat Datang di Aplikasi Xpedisi");
         System.out.println("1. User");
         System.out.println("2. Admin");
-        System.out.print("Masukkan pilihan (1 / 2) : ");
+        System.out.print("   Masukkan pilihan (1 / 2) : ");
         pilihan = input.nextInt();
 
         //User
