@@ -124,7 +124,7 @@ public class SistemEkspedisi_registrasiLogin  {
             System.out.print("\nMasukkan password1\t\t: ");
             dataAwal[1][1] = input.next(); // dataAwal[1][1] digunakan untuk input password login admin
             if ((dataAwal[1][1].equals(Admin[1])) && (dataAwal[1][0].equals(Admin[0]))) {
-                System.out.println("Login berhasil");
+                System.out.println("Selamat Datang Admin");
                 validA = true;
             } else if ((dataAwal[1][1] != Admin[1]) && (attempts < 3) && (dataAwal[1][0] != Admin[0])) {
                 System.out.print("Login gagal");
