@@ -48,13 +48,13 @@ public class SistemEkspedisi_registrasiLogin  {
     public static void registrasi(Scanner input) {
         while ((!validU) && (attempts < 3)) {
             System.out.println("\n\t\tRegistrasi");
-            System.out.print("Masukkan username anda: ");
+            System.out.print("Masukkan username anda\t: ");
             username = input.next();
             System.out.print("Masukkan Email\t\t: ");
             dataAwal[0][0] = input.next(); // dataAwal [0][0] digunakan sebagai email registrasi
-            System.out.print("\nMasukkan Password1\t: ");
+            System.out.print("Masukkan Password1\t: ");
             String password1 = input.next();
-            System.out.print("\nMasukkan Password2\t: ");
+            System.out.print("Masukkan Password2\t: ");
             String password2 = input.next();
             // cek status registrasi
             if (password1.equals(password2)) {
