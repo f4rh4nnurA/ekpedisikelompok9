@@ -22,6 +22,7 @@ public class SistemEkspedisi_registrasiLogin  {
             registrasi(input);
             if (validU) {
                 login(input);
+                System.out.println("\t\tAplikasi Xpedisi");
                 System.out.println("1. Ganti Password");
                 System.out.println("2. Ganti Email");
                 System.out.println("3. Kembali");
@@ -48,7 +49,7 @@ public class SistemEkspedisi_registrasiLogin  {
     public static void registrasi(Scanner input) {
         while ((!validU) && (attempts < 3)) {
             System.out.println("\n\t\tRegistrasi");
-            System.out.print("Masukkan username anda\t: ");
+            System.out.print("Masukkan Username Anda\t: ");
             username = input.next();
             System.out.print("Masukkan Email\t\t: ");
             dataAwal[0][0] = input.next(); // dataAwal [0][0] digunakan sebagai email registrasi
