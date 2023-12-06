@@ -22,7 +22,7 @@ public class SistemEkspedisi_registrasiLogin  {
             registrasi(input);
             if (validU) {
                 login(input);
-                System.out.println("\t\tAplikasi Xpedisi");
+                System.out.println("\n\t\tAplikasi Xpedisi");
                 System.out.println("1. Ganti Password");
                 System.out.println("2. Ganti Email");
                 System.out.println("3. Kembali");
