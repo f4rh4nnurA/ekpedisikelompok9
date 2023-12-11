@@ -91,10 +91,14 @@ public static void main(String[] arg) {
                 
                         }
                 
-                        // Memanggil fungsi tampilkanPesanan untuk menampilkan hasil pesanan
+                        // Memanggil fungsi tampilkanPesanan untuk menampilkan has1il pesanan
                         tampilkanPesanan(paket, jmlBarang, hargaAkhir); 
                     } else if (menu == 2){
-
+                        System.out.println("\n\t\tInformasi Akun");
+                        System.out.println("Username\t\t: " + usernameUser[0][0]);
+                        System.out.println("Email\t\t: " + emailUser[0][0]);
+                        System.out.println("Nomor HP\t: " + no_HP[0][0]);
+                        System.out.println("Password\t\t: " + passwordUser[0][0]);
                     }
 
                     break;
