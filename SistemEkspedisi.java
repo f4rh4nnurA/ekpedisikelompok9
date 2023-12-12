@@ -25,7 +25,7 @@ public static void main(String[] arg) {
                 case 1 :
                     registrasiUser(input);
                     loginUser(input);
-                    if (((emailUser[0][1].equals(emailUser[0][0])) && (passwordUser[1][1].equals(passwordUser[1][0]))) || (no_HP[0][1] == no_HP[0][0]) && (passwordUser[1][0].equals(passwordUser[0][0])) && attempts < 3) {
+                    if (attempts < 3) {
                         System.out.print("\n\t\t\tMenu Xpedisi " + "\n1. Kirim Barang " + "\n2. Informasi Akun " + "\nPilih menu\t\t:");
                         int menu = input.nextInt();
                         if (menu == 1){
@@ -223,17 +223,18 @@ private static boolean cekValidasiNo_HP(long nomorHP) {
     return jumlahDigit >= 10 && jumlahDigit <= 13 && String.valueOf(nomorHP).charAt(0) == '0';
 }
 private static String loginAdmin(Scanner input){
-    System.out.print("Masukkan username\t: ");
+    System.out.println("\n\t\t\tLogin Admin");
+    System.out.print("\nMasukkan username\t: ");
     usernameA[0] = input.next();
     System.out.print("\nMasukkan password\t: ");
     passwordA[0] = input.next();
-    if ((usernameA[0] != Admin[0]) && (passwordA[0] != Admin[1]) && (attempts < 3)) {
-        System.out.println("nomor HP anda tidak valid. Silakan coba lagi.");
+    if ((usernameA[0].equals(Admin[0]) && (passwordA[0].equals(Admin[1])) && (attempts < 3))) {
+        System.out.println("Selamat Datang Admin");
         attempts++;
-        valid[2] = false;
+        valid[2] = true;
         return null;
     } else if((usernameA[0] != Admin[0]) && (passwordA[0] != Admin[1]) && (attempts < 3)) {
-        valid[2] = true;
+        valid[2] = false;
     } else if (attempts == 3) {
         System.out.println("Kesempatan anda untuk mengulang sudah habis");
     }
@@ -246,7 +247,7 @@ public static void menuInventori() {
         System.out.println("1. Menambahkan data paket");
         System.out.println("2. Menunjukkan data paket");
         System.out.println("3. Menghapus data paket");
-        System.out.println("4. Kembali ke menu utama");
+        System.out.println("4. Keluar");
         System.out.print("Masukkan opsi yang ingin anda pilih : ");
         int pilihan = input.nextInt();
         input.nextLine();
