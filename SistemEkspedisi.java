@@ -25,9 +25,10 @@ public static void main(String[] arg) {
                 case 1 :
                     registrasiUser(input);
                     loginUser(input);
-                    System.out.print("\n\t\t\tMenu Xpedisi " + "\n1. Kirim Barang " + "\n2. Informasi Akun " + "\nPilih menu\t\t:");
-                    int menu = input.nextInt();
-                    if (menu == 1){
+                    if (((emailUser[0][1].equals(emailUser[0][0])) && (passwordUser[1][1].equals(passwordUser[1][0]))) || (no_HP[0][1] == no_HP[0][0]) && (passwordUser[1][0].equals(passwordUser[0][0])) && attempts < 3) {
+                        System.out.print("\n\t\t\tMenu Xpedisi " + "\n1. Kirim Barang " + "\n2. Informasi Akun " + "\nPilih menu\t\t:");
+                        int menu = input.nextInt();
+                        if (menu == 1){
                         Scanner input = new Scanner(System.in);
                         Scanner input2 = new Scanner(System.in);
                 
@@ -102,6 +103,7 @@ public static void main(String[] arg) {
                     }
 
                     break;
+                }
                 case 2 :
                     loginAdmin(input);
                     menuInventori();
@@ -193,16 +195,16 @@ private static void loginUser (Scanner input ){
             }
         }
         if (pilihan == 2) {
-            System.out.print("Masukkan email\t: ");
+            System.out.print("Masukkan email\t\t: ");
             emailUser[0][1] = input.next();
             System.out.print("Masukkan password\t: ");
             passwordUser[1][1] = input.next();
-            if ((emailUser[0][1] == emailUser[0][0]) && (passwordUser[1][1] == passwordUser[1][0])) {
+            if ((emailUser[0][1].equals(emailUser[0][0])) && (passwordUser[1][1].equals(passwordUser[0][0]))) {
                 System.out.println("login berhasil");
                 valid[2] = true;
                 break;
             } else {
-                System.out.println("Email atau password anda tidak valid. Silakan coba lagi.");
+                System.out.println("Email atau password anda tidak valid. ");
                 attempts++;
             }
         }
