@@ -97,8 +97,8 @@ public static void main(String[] arg) {
                     } else if (menu == 2){
                         System.out.println("\n\t\tInformasi Akun");
                         System.out.println("Username\t\t: " + usernameUser[0][0]);
-                        System.out.println("Email\t\t: " + emailUser[0][0]);
-                        System.out.println("Nomor HP\t: " + no_HP[0][0]);
+                        System.out.println("Email\t\t\t: " + emailUser[0][0]);
+                        System.out.println("Nomor HP\t\t\t: " + no_HP[0][0]);
                         System.out.println("Password\t\t: " + passwordUser[0][0]);
                     }
 
