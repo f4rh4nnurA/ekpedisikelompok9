@@ -1,7 +1,7 @@
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class SistemEkspedisi  {
+public class coba  {
     private static String[][] dataAwal      = new String[10][2];
     private static String[][] usernameUser  = new String[2][2], 
                               emailUser     = new String[2][2], 
@@ -34,8 +34,16 @@ public static void main(String[] arg) {
                                 System.out.print("\n\t\t\tPilihan setelah registrasi" + "\n1. Login" + "\n2. Kembali ke halaman awal" + "\n3. Keluar dari aplikasi" +"\nApakah anda ingin login, kembali ke halaman awal, atau keluar ? (1/2/3)\n");
                                 int pilih = input.nextInt();
                                 if (pilih == 1) {
-                                    loginUser(input);
-                                    
+                                    // login setelah registrasi
+                                    loginUser(input);     
+                                    System.out.print("\nMenu Fitur " + "\n1. Kirim Barang" + "\n2. Akun" + "\nPilih opsi : ");
+                                    int pilihan = input.nextInt();
+                                    if (pilihan == 1) {
+                                        
+                                    } else if (pilihan == 2){
+                                        System.out.println("\n\t\t\tAkun");
+                                        tampilkanInfoAkun(input);
+                                    }
                                 } else if (pilih == 2){
                                     valid[1][0] = false;
                                     return;
@@ -48,7 +56,6 @@ public static void main(String[] arg) {
                                 
                             } else if (choose == 2) {
                                 loginUser(input);
-                                tampilkanOpsi_SetelahRegistrasi(input);
                             } else if (choose == 3){
                                 valid[1][0] = false;
                                 opsi = memilihAkun(input);
@@ -141,7 +148,7 @@ private static void loginUser (Scanner input ){
             no_HP[0][1] = input.nextLong();
             System.out.print("Masukkan password\t: ");
             passwordUser[1][0] = input.next();
-            if ((no_HP[0][1] == no_HP[0][0]) && (passwordUser[1][0].equals(passwordUser[0][0]))) {
+            if ((no_HP[0][1] == no_HP[0][0]) && (passwordUser[1][0].equals(passwordUser[0][1]))) {
                 System.out.println("login berhasil, selamat datang " + usernameUser[0][0]);
                 valid[4][2] = true;
                 break;
@@ -155,7 +162,7 @@ private static void loginUser (Scanner input ){
             emailUser[0][1] = input.next();
             System.out.print("Masukkan password\t: ");
             passwordUser[1][1] = input.next();
-            if ((emailUser[0][1].equals(emailUser[0][0])) && (passwordUser[1][1].equals(passwordUser[0][0]))) {
+            if ((emailUser[0][1].equals(emailUser[0][0])) && (passwordUser[1][1].equals(passwordUser[0][1]))) {
                 System.out.println("login berhasil");
                 valid[4][2] = true;
                 break;
@@ -179,7 +186,7 @@ private static boolean cekValidasiNo_HP(long nomorHP) {
     return jumlahDigit >= 10 && jumlahDigit <= 13 && String.valueOf(nomorHP).charAt(0) == '0';
 }
 private static String loginAdmin(Scanner input){
-    while ((!valid[4][3]) && (attempts < 3)) {
+    while ((valid[4][3] == true) && (attempts < 3)) {
         System.out.println("\n\t\t\tLogin Admin");
         System.out.print("\nMasukkan username\t: ");
         usernameA[0] = input.next();
@@ -374,17 +381,6 @@ static void tampilkanInfoAkun(Scanner input){
                         "\nEmail\t\t\t: "    + emailUser[0][0]    + 
                         "\nNo.Telpon\t\t: "  + no_HP[0][0]        + 
                         "\nPassword\t\t:"    + passwordUser[0][0]);
-}
-static int tampilkanOpsi_SetelahRegistrasi (Scanner input){
-    System.out.print("\nMenu Fitur " + "\n1. Kirim Barang" + "\n2. Akun" + "\nPilih opsi : ");
-    int pilihan = input.nextInt();
-    if (pilihan == 1) {
-                                        
-    } else if (pilihan == 2){
-        System.out.println("\n\t\t\tAkun");
-        tampilkanInfoAkun(input);
-    }
-    return input.nextInt();
 }
 }
 
