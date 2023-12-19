@@ -1,7 +1,7 @@
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class SistemEkspedisi      {
+public class SistemEkspedisi  {
     private static String[][] dataAwal      = new String[10][6];
     private static String[][] usernameUser  = new String[2][2], 
                               emailUser     = new String[2][2], 
@@ -205,38 +205,42 @@ public class SistemEkspedisi      {
         }
 
 
-        while (i < jmlPaket) {
-            System.out.println("\n--------------------------------- Paket ke-" + (i+1) + " ---------------------------------");
+        while (i < jmlPaket + checkEmptyArrayElement(dataAwal)) {
+            System.out.println("\n--------------------------------------- Paket ke-" + i + " --------------------------------------------------");
             
             Scanner input2 = new Scanner(System.in);
             
             System.out.print("Jenis barang: Barang Kecil/Barang besar/Elektronik kecil/Elektronik besar/Pakaian/Dokumen\n");
-            System.out.print("Masukkan jenis barang\t\t\t\t: ");
-            dataAwal[i+1][0] = input2.nextLine();
-            System.out.print("Berat barang\t\t\t\t\t: ");
-            dataAwal[i+1][1] = input2.nextLine();
-            System.out.print("Jenis pengiriman(Reguler/Express)\t\t: ");
-            dataAwal[i+1][2] = input2.nextLine();
-            System.out.print("Jarak pengiriman\t\t\t\t: ");
-            dataAwal[i+1][3] = input2.nextLine();
-            System.out.print("Asuransi(Iya/Tidak)\t\t\t\t: ");
-            dataAwal[i+1][4] = input2.nextLine();
-            System.out.print("Packing kayu(Iya/Tidak)\t\t\t\t: ");
-            dataAwal[i+1][5]=input2.nextLine();
-            
-            hitungBiaya(jmlPaket);
+            System.out.print("Masukkan jenis barang\t\t\t\t\t: ");
+            dataAwal[i][0] = input2.nextLine();
+            System.out.print("Berat barang\t\t\t\t\t\t: ");
+            dataAwal[i][1] = input2.nextLine();
+            System.out.print("Jenis pengiriman(Reguler/Express)\t\t\t: ");
+            dataAwal[i][2] = input2.nextLine();
+            System.out.print("Jarak pengiriman\t\t\t\t\t: ");
+            dataAwal[i][3] = input2.nextLine();
+            System.out.print("Asuransi(Iya/Tidak)\t\t\t\t\t: ");
+            dataAwal[i][4] = input2.nextLine();
+            System.out.print("Packing kayu(Iya/Tidak)\t\t\t\t\t: ");
+            dataAwal[i][5]=input2.nextLine();
+
             i++;
             availableDataSpace = dataAwal.length - i;
             
+            // double brtBarang = Double.parseDouble(dataAwal[i][1]);
+            // double jrkPengiriman = Double.parseDouble(dataAwal[i][3]);
+            // double ttlHarga, hargaPerKilogram = 0, hrgJarak = 0, hrgAsuransi = 0, hrgPackingKayu=0 ;
+
+            // Output ringkasan semua pesanan
         // ...
         }
     }   
 
-    private static void hitungBiaya(int jmlPaket) {
+    private static void hitungBiaya(String[][] dataAwal) {
         double hargaAkhir=0;
         
         int i = 0;
-        while (i < jmlPaket) {
+        while (i < dataAwal.length) {
             if (dataAwal[i][0] != null) {
             // & dataAwal[i][0] != null
             double brtBarang = Double.parseDouble(dataAwal[i][1]);
@@ -329,9 +333,9 @@ public class SistemEkspedisi      {
             System.out.print("\nEstimasi waktu pengirimanpaket ke-"+ i + "\t\t\t: " + estimasi + "\n");
             // ... (lanjutkan output informasi lainnya)
             }
-            // Tambahkan counter setiap kali melakukan loop
             i++;
         }
+            // Tambahkan counter setiap kali melakukan loop
             System.out.println("\nTotal Harga pengiriman untuk semua pesanan\t\t: Rp " + hargaAkhir);
             System.out.println("\n----------------------------------------------------------------------------------------------------");
     }
@@ -384,12 +388,12 @@ public class SistemEkspedisi      {
         input.nextLine();
         if (deleteConfirmation.equalsIgnoreCase("y")) {
             if (deletedIndex >= 1 && deletedIndex <= dataAwal.length) {
-                dataAwal[deletedIndex ][0] = null;
-                dataAwal[deletedIndex ][1] = null;
-                dataAwal[deletedIndex ][2] = null;
-                dataAwal[deletedIndex ][3] = null;
-                dataAwal[deletedIndex ][4] = null;
-                dataAwal[deletedIndex ][5] = null;
+                dataAwal[deletedIndex -1][0] = null;
+                dataAwal[deletedIndex -1][1] = null;
+                dataAwal[deletedIndex -1][2] = null;
+                dataAwal[deletedIndex -1][3] = null;
+                dataAwal[deletedIndex -1][4] = null;
+                dataAwal[deletedIndex -1][5] = null;
                 System.out.println("Data berhasil dihapus");
             } else {
                 System.out.println("Index tidak valid");
@@ -403,7 +407,7 @@ public class SistemEkspedisi      {
     {
         for (int i = 0; i <= dataAwal.length; i++) {
             if (dataAwal[i][0] == null) {
-                return i == 0 ? 0 : (i + 1);
+                return (i + 1);
             }
         }
 
