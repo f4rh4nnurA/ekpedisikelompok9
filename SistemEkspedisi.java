@@ -1,7 +1,7 @@
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class SistemEkspedisi  {
+public class SistemEkspedisi      {
     private static String[][] dataAwal      = new String[10][6];
     private static String[][] usernameUser  = new String[2][2], 
                               emailUser     = new String[2][2], 
@@ -179,17 +179,13 @@ public class SistemEkspedisi  {
         return null;   
     }
 
-
-
+    
+    
     private static void inputPesanan(String[][] dataAwal) {
-        Scanner input = new Scanner(System.in);
-        String estimasi = "hari";
-
+        Scanner input2 = new Scanner(System.in);
+        
         System.out.print("Jumlah paket yang ingin anda kirimkan: ");
         int jmlPaket = input.nextInt();
-
-        int[] resi = new int[jmlPaket];
-        double hargaAkhir = 0;
 
         System.out.println("-------------------------------------- INPUT PESANAN ------------------------------------------------");
         
@@ -206,33 +202,27 @@ public class SistemEkspedisi  {
 
 
         while (i < jmlPaket + checkEmptyArrayElement(dataAwal)) {
-            System.out.println("\n--------------------------------------- Paket ke-" + i + " --------------------------------------------------");
+            System.out.println("\n---------------------------------------- Paket ke-" + (i+1) + " -------------------------------------------------");
             
-            Scanner input2 = new Scanner(System.in);
             
             System.out.print("Jenis barang: Barang Kecil/Barang besar/Elektronik kecil/Elektronik besar/Pakaian/Dokumen\n");
             System.out.print("Masukkan jenis barang\t\t\t\t\t: ");
-            dataAwal[i][0] = input2.nextLine();
+            dataAwal[i+1][0] = input2.nextLine();
             System.out.print("Berat barang\t\t\t\t\t\t: ");
-            dataAwal[i][1] = input2.nextLine();
+            dataAwal[i+1][1] = input2.nextLine();
             System.out.print("Jenis pengiriman(Reguler/Express)\t\t\t: ");
-            dataAwal[i][2] = input2.nextLine();
+            dataAwal[i+1][2] = input2.nextLine();
             System.out.print("Jarak pengiriman\t\t\t\t\t: ");
-            dataAwal[i][3] = input2.nextLine();
+            dataAwal[i+1][3] = input2.nextLine();
             System.out.print("Asuransi(Iya/Tidak)\t\t\t\t\t: ");
-            dataAwal[i][4] = input2.nextLine();
+            dataAwal[i+1][4] = input2.nextLine();
             System.out.print("Packing kayu(Iya/Tidak)\t\t\t\t\t: ");
-            dataAwal[i][5]=input2.nextLine();
-
+            dataAwal[i+1][5]=input2.nextLine();
+            
             i++;
             availableDataSpace = dataAwal.length - i;
             
-            // double brtBarang = Double.parseDouble(dataAwal[i][1]);
-            // double jrkPengiriman = Double.parseDouble(dataAwal[i][3]);
-            // double ttlHarga, hargaPerKilogram = 0, hrgJarak = 0, hrgAsuransi = 0, hrgPackingKayu=0 ;
-
-            // Output ringkasan semua pesanan
-        // ...
+            // ...
         }
     }   
 
@@ -242,87 +232,86 @@ public class SistemEkspedisi  {
         int i = 0;
         while (i < dataAwal.length) {
             if (dataAwal[i][0] != null) {
-            // & dataAwal[i][0] != null
             double brtBarang = Double.parseDouble(dataAwal[i][1]);
             double jrkPengiriman = Double.parseDouble(dataAwal[i][3]);
             double ttlHarga, hargaPerKilogram = 0, hrgJarak = 0, hrgAsuransi = 0, hrgPackingKayu=0 ;
             String estimasi = "";
             //menentukan harga per kilogram
-            if (dataAwal[i][0].equalsIgnoreCase("Barang kecil")) {
-                if (dataAwal[i][2].equalsIgnoreCase("Reguler")) {
-                    hargaPerKilogram = 3000.0;
-                } else if (dataAwal[i][2].equalsIgnoreCase("Express")) {
-                    hargaPerKilogram = 5000.0;
-                }
-            } else if (dataAwal[i][0].equalsIgnoreCase("Barang besar")) {
-                if (dataAwal[i][2].equalsIgnoreCase("Reguler")) {
-                    hargaPerKilogram=10000.0;
-                } else if (dataAwal[i][2].equalsIgnoreCase("Express")) {
-                    hargaPerKilogram=15000.0;     
-                }
-                
-            } else if (dataAwal[i][0].equalsIgnoreCase("Elektronik kecil")) {
-                if (dataAwal[i][2].equalsIgnoreCase("Reguler")) {
-                    hargaPerKilogram=8000.0;
-                } else if (dataAwal[i][2].equalsIgnoreCase("Express")) {
-                    hargaPerKilogram=10000.0;
+                if (dataAwal[i][0].equalsIgnoreCase("Barang kecil")) {
+                    if (dataAwal[i][2].equalsIgnoreCase("Reguler")) {
+                        hargaPerKilogram = 3000.0;
+                    } else if (dataAwal[i][2].equalsIgnoreCase("Express")) {
+                        hargaPerKilogram = 5000.0;
+                    }
+                } else if (dataAwal[i][0].equalsIgnoreCase("Barang besar")) {
+                    if (dataAwal[i][2].equalsIgnoreCase("Reguler")) {
+                        hargaPerKilogram=10000.0;
+                    } else if (dataAwal[i][2].equalsIgnoreCase("Express")) {
+                        hargaPerKilogram=15000.0;     
+                    }
+                    
+                } else if (dataAwal[i][0].equalsIgnoreCase("Elektronik kecil")) {
+                    if (dataAwal[i][2].equalsIgnoreCase("Reguler")) {
+                        hargaPerKilogram=8000.0;
+                    } else if (dataAwal[i][2].equalsIgnoreCase("Express")) {
+                        hargaPerKilogram=10000.0;
+                    }
+
+                } else if (dataAwal[i][0].equalsIgnoreCase("Elektronik besar")) {
+                    if (dataAwal[i][2].equalsIgnoreCase("Reguler")) {
+                        hargaPerKilogram=10000.0;
+                    } else if (dataAwal[i][2].equalsIgnoreCase("Express")) {
+                        hargaPerKilogram=12000.0;
+                    }
+                    
+                } else if (dataAwal[i][0].equalsIgnoreCase("Pakaian")) {
+                    if (dataAwal[i][2].equals("Reguler")) {
+                        hargaPerKilogram=5000.0;
+                    } else if (dataAwal[i][2].equalsIgnoreCase("Express")) {
+                        hargaPerKilogram=8000.0;
+                    }
+                } else if (dataAwal[i][0].equalsIgnoreCase("Dokumen")) {
+                    if (dataAwal[i][2].equalsIgnoreCase("Reguler")) {
+                        hargaPerKilogram=2000.0;
+                    } else if (dataAwal[i][2].equalsIgnoreCase("Express")) {
+                        hargaPerKilogram=4000.0;
+                    }
                 }
 
-            } else if (dataAwal[i][0].equalsIgnoreCase("Elektronik besar")) {
+                //hitung harga
+                //harga per kilogram menurut jarak pengiriman
+                if (jrkPengiriman < 50) {
+                    hrgJarak = 7000.0;
+                } else if (jrkPengiriman < 100) {
+                    hrgJarak=10000.0;
+                } else if (jrkPengiriman < 300 ) {
+                    hrgJarak=15000.0;
+                } else if (jrkPengiriman < 500 ) {
+                    hrgJarak=20000.0;
+                } else if (jrkPengiriman < 700) {
+                    hrgJarak=25000.0;  
+                } else if (jrkPengiriman < 1000) {
+                    hrgJarak=35000.0;
+                }// ... (lanjutkan penentuan harga jarak lainnya)
+
+                //menentukan asuransi
+                if (dataAwal[i][4].equalsIgnoreCase("Iya")) {
+                    hrgAsuransi = 10000.0;
+                } else if (dataAwal[i][4].equalsIgnoreCase("Tidak")) {
+                    hrgAsuransi = 0.0;
+                }
+
+                if (dataAwal[i][5].equalsIgnoreCase("Iya")) {
+                    hrgPackingKayu=25000.0;
+                } else if (dataAwal[i][5].equalsIgnoreCase("Tidak")) {
+                    hrgPackingKayu=0.0;
+                }
+
                 if (dataAwal[i][2].equalsIgnoreCase("Reguler")) {
-                    hargaPerKilogram=10000.0;
-                } else if (dataAwal[i][2].equalsIgnoreCase("Express")) {
-                    hargaPerKilogram=12000.0;
+                    estimasi="7-10 Hari";
+                } if (dataAwal[i][2].equalsIgnoreCase("Express")) {
+                    estimasi="3-5 Hari";
                 }
-                
-            } else if (dataAwal[i][0].equalsIgnoreCase("Pakaian")) {
-                if (dataAwal[i][2].equals("Reguler")) {
-                    hargaPerKilogram=5000.0;
-                } else if (dataAwal[i][2].equalsIgnoreCase("Express")) {
-                    hargaPerKilogram=8000.0;
-                }
-            } else if (dataAwal[i][0].equalsIgnoreCase("Dokumen")) {
-                if (dataAwal[i][2].equalsIgnoreCase("Reguler")) {
-                    hargaPerKilogram=2000.0;
-                } else if (dataAwal[i][2].equalsIgnoreCase("Express")) {
-                    hargaPerKilogram=4000.0;
-                }
-            }
-
-            //hitung harga
-            //harga per kilogram menurut jarak pengiriman
-            if (jrkPengiriman < 50) {
-                hrgJarak = 7000.0;
-            } else if (jrkPengiriman < 100) {
-                hrgJarak=10000.0;
-            } else if (jrkPengiriman < 300 ) {
-                hrgJarak=15000.0;
-            } else if (jrkPengiriman < 500 ) {
-                hrgJarak=20000.0;
-            } else if (jrkPengiriman < 700) {
-                hrgJarak=25000.0;  
-            } else if (jrkPengiriman < 1000) {
-                hrgJarak=35000.0;
-            }// ... (lanjutkan penentuan harga jarak lainnya)
-
-            //menentukan asuransi
-            if (dataAwal[i][4].equalsIgnoreCase("Iya")) {
-                hrgAsuransi = 10000.0;
-            } else if (dataAwal[i][4].equalsIgnoreCase("Tidak")) {
-                hrgAsuransi = 0.0;
-            }
-
-            if (dataAwal[i][5].equalsIgnoreCase("Iya")) {
-                hrgPackingKayu=25000.0;
-            } else if (dataAwal[i][5].equalsIgnoreCase("Tidak")) {
-                hrgPackingKayu=0.0;
-            }
-
-            if (dataAwal[i][2].equalsIgnoreCase("Reguler")) {
-                estimasi="7-10 Hari";
-            } if (dataAwal[i][2].equalsIgnoreCase("Express")) {
-                estimasi="3-5 Hari";
-            }
 
             //hitung total harga
             ttlHarga = (brtBarang * hargaPerKilogram) + hrgJarak + hrgAsuransi + hrgPackingKayu;
@@ -388,12 +377,12 @@ public class SistemEkspedisi  {
         input.nextLine();
         if (deleteConfirmation.equalsIgnoreCase("y")) {
             if (deletedIndex >= 1 && deletedIndex <= dataAwal.length) {
-                dataAwal[deletedIndex -1][0] = null;
-                dataAwal[deletedIndex -1][1] = null;
-                dataAwal[deletedIndex -1][2] = null;
-                dataAwal[deletedIndex -1][3] = null;
-                dataAwal[deletedIndex -1][4] = null;
-                dataAwal[deletedIndex -1][5] = null;
+                dataAwal[deletedIndex ][0] = null;
+                dataAwal[deletedIndex ][1] = null;
+                dataAwal[deletedIndex ][2] = null;
+                dataAwal[deletedIndex ][3] = null;
+                dataAwal[deletedIndex ][4] = null;
+                dataAwal[deletedIndex ][5] = null;
                 System.out.println("Data berhasil dihapus");
             } else {
                 System.out.println("Index tidak valid");
@@ -407,7 +396,7 @@ public class SistemEkspedisi  {
     {
         for (int i = 0; i <= dataAwal.length; i++) {
             if (dataAwal[i][0] == null) {
-                return (i + 1);
+                return i == 0 ? 0 : (i + 1);
             }
         }
 
